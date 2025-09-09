@@ -12,6 +12,22 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 
 app = FastAPI()
 
+origins = [
+    "http://localhost:5173",
+    "https://crm-ia-eight.vercel.app",
+    # si necesitás permitir todos los subdominios vercel:
+    # usar allow_origin_regex (no mezclarlos con '*')
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    # o bien: allow_origin_regex=r"https://.*\.vercel\.app"
+    allow_credentials=False,          # ponelo True solo si usás cookies
+    allow_methods=["*"],              # habilita OPTIONS/POST/GET/etc
+    allow_headers=["*"],              # Content-Type, Authorization, etc.
+)
+
 @app.get("/health")
 def health():
     return {"status": "ok"}
