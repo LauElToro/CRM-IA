@@ -7,7 +7,7 @@ from services.classify_ia import clasificar_lead_por_ia
 from database.mysql import get_all_leads, insert_lead
 from models.ads import AdCampaignRequest, AdSegmentResponse
 from services.ads import build_ad_plan, build_previews
-
+from fastapi.middleware.cors import CORSMiddleware
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 app = FastAPI()
