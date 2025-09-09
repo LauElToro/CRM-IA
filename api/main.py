@@ -15,6 +15,7 @@ app = FastAPI()
 origins = [
     "http://localhost:5173",
     "https://crm-ia-eight.vercel.app",
+    "crm-ia-laueltoro-lautoros-projects.vercel.app",
     # si necesitás permitir todos los subdominios vercel:
     # usar allow_origin_regex (no mezclarlos con '*')
 ]
